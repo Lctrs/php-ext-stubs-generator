@@ -6,7 +6,18 @@ use Lctrs\PhpExtStubsGenerator\Infrastructure\Kernel;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-require_once dirname(__DIR__) . '/vendor/autoload_runtime.php';
+foreach (
+    [
+        dirname(__DIR__, 3) . '/autoload_runtime.php',
+        dirname(__DIR__) . '/vendor/autoload_runtime.php',
+    ] as $file
+) {
+    if (! file_exists($file)) {
+        continue;
+    }
+
+    require $file;
+}
 
 return static function (InputInterface $input, OutputInterface $output): void {
     (new Kernel('prod', false))
