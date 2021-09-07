@@ -1,0 +1,16 @@
+#!/usr/bin/env php
+<?php
+
+use Lctrs\PhpExtStubsGenerator\Infrastructure\Cli\GenerateStubsForExtCommand;
+use Lctrs\PhpExtStubsGenerator\Infrastructure\Kernel;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
+
+require_once dirname(__DIR__) . '/vendor/autoload_runtime.php';
+
+return static function (InputInterface $input, OutputInterface $output): void {
+    (new Kernel('prod', false))
+        ->getContainer()
+        ->get(GenerateStubsForExtCommand::class)
+        ->run($input, $output);
+};
