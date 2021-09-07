@@ -1,0 +1,341 @@
+# https://docs.github.com/en/actions
+
+name: "Integrate"
+
+on: # yamllint disable-line rule:truthy
+  pull_request: null
+  push:
+    branches:
+      - "master"
+
+env:
+  PHP_EXTENSIONS: "mbstring"
+
+jobs:
+  coding-standards:
+    name: "Coding Standards"
+
+    runs-on: "ubuntu-20.04"
+
+    strategy:
+      matrix:
+        php-version:
+          - "8.0"
+
+        dependencies:
+          - "locked"
+
+    steps:
+      - name: "Checkout"
+        uses: "actions/checkout@v2.3.4"
+
+      - name: "Lint YAML files"
+        uses: "ibiqlik/action-yamllint@v3.0.4"
+        with:
+          config_file: ".yamllint.yaml"
+          file_or_dir: "."
+          strict: true
+
+      - name: "Install PHP with extensions"
+        uses: "shivammathur/setup-php@2.13.0"
+        with:
+          coverage: "none"
+          extensions: "${{ env.PHP_EXTENSIONS }}"
+          php-version: "${{ matrix.php-version }}"
+
+      - name: "Validate composer.json and composer.lock"
+        run: "composer validate --strict"
+
+      - name: "Determine composer cache directory"
+        uses: "./.github/actions/composer/composer/determine-cache-directory"
+
+      - name: "Cache dependencies installed with composer"
+        uses: "actions/cache@v2.1.6"
+        with:
+          path: "${{ env.COMPOSER_CACHE_DIR }}"
+          key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock') }}"
+          restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
+
+      - name: "Install ${{ matrix.dependencies }} dependencies with composer"
+        uses: "./.github/actions/composer/composer/install"
+        with:
+          dependencies: "${{ matrix.dependencies }}"
+
+      - name: "Run ergebnis/composer-normalize"
+        run: "composer normalize --dry-run"
+
+      - name: "Create cache directory for squizlabs/php_codesniffer"
+        run: "mkdir -p .build/php_codesniffer"
+
+      - name: "Cache cache directory for squizlabs/php_codesniffer"
+        uses: "actions/cache@v2.1.6"
+        with:
+          path: ".build/php_codesniffer"
+          key: "php-${{ matrix.php-version }}-php_codesniffer-${{ github.sha }}"
+          restore-keys: "php-${{ matrix.php-version }}-php_codesniffer-"
+
+      - name: "Run squizlabs/php_codesniffer"
+        run: "vendor/bin/phpcs"
+
+  dependency-analysis:
+    name: "Dependency Analysis"
+
+    runs-on: "ubuntu-latest"
+
+    strategy:
+      matrix:
+        php-version:
+          - "8.0"
+
+        dependencies:
+          - "locked"
+
+    steps:
+      - name: "Checkout"
+        uses: "actions/checkout@v2.3.4"
+
+      - name: "Install PHP with extensions"
+        uses: "shivammathur/setup-php@2.13.0"
+        with:
+          coverage: "none"
+          extensions: "${{ env.PHP_EXTENSIONS }}"
+          php-version: "${{ matrix.php-version }}"
+
+      - name: "Determine composer cache directory"
+        uses: "./.github/actions/composer/composer/determine-cache-directory"
+
+      - name: "Cache dependencies installed with composer"
+        uses: "actions/cache@v2.1.6"
+        with:
+          path: "${{ env.COMPOSER_CACHE_DIR }}"
+          key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock', '.tools/composer-require-checker/composer.lock') }}"
+          restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
+
+      - name: "Install ${{ matrix.dependencies }} dependencies with composer"
+        uses: "./.github/actions/composer/composer/install"
+        with:
+          dependencies: "${{ matrix.dependencies }}"
+
+      - name: "Install maglnet/composer-require-checker with composer"
+        uses: "./.github/actions/composer/composer/install"
+        with:
+          dependencies: "${{ matrix.dependencies }}"
+          working-directory: ".tools/composer-require-checker/"
+
+      - name: "Run maglnet/composer-require-checker"
+        run: ".tools/composer-require-checker/vendor/bin/composer-require-checker check --config-file=$(pwd)/composer-require-checker.json"
+
+  static-code-analysis:
+    name: "Static Code Analysis"
+
+    runs-on: "ubuntu-latest"
+
+    strategy:
+      matrix:
+        php-version:
+          - "8.0"
+
+        dependencies:
+          - "locked"
+
+    steps:
+      - name: "Checkout"
+        uses: "actions/checkout@v2.3.4"
+
+      - name: "Install PHP with extensions"
+        uses: "shivammathur/setup-php@2.13.0"
+        with:
+          coverage: "none"
+          extensions: "${{ env.PHP_EXTENSIONS }}"
+          php-version: "${{ matrix.php-version }}"
+
+      - name: "Determine composer cache directory"
+        uses: "./.github/actions/composer/composer/determine-cache-directory"
+
+      - name: "Cache dependencies installed with composer"
+        uses: "actions/cache@v2.1.6"
+        with:
+          path: "${{ env.COMPOSER_CACHE_DIR }}"
+          key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock') }}"
+          restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
+
+      - name: "Install ${{ matrix.dependencies }} dependencies with composer"
+        uses: "./.github/actions/composer/composer/install"
+        with:
+          dependencies: "${{ matrix.dependencies }}"
+
+      - name: "Create cache directory for phpstan/phpstan"
+        run: "mkdir -p .build/phpstan"
+
+      - name: "Cache cache directory for phpstan/phpstan"
+        uses: "actions/cache@v2.1.6"
+        with:
+          path: ".build/phpstan"
+          key: "php-${{ matrix.php-version }}-phpstan-${{ github.sha }}"
+          restore-keys: "php-${{ matrix.php-version }}-phpstan-"
+
+      - name: "Run phpstan/phpstan"
+        run: "vendor/bin/phpstan analyse --configuration=phpstan.neon.dist --memory-limit=-1"
+
+      - name: "Create cache directory for vimeo/psalm"
+        run: "mkdir -p .build/psalm"
+
+      - name: "Cache cache directory for vimeo/psalm"
+        uses: "actions/cache@v2.1.6"
+        with:
+          path: ".build/psalm"
+          key: "php-${{ matrix.php-version }}-psalm-${{ github.sha }}"
+          restore-keys: "php-${{ matrix.php-version }}-psalm-"
+
+      - name: "Run vimeo/psalm"
+        run: "vendor/bin/psalm --config=psalm.xml --diff --shepherd --show-info=false --stats --threads=4"
+
+  tests:
+    name: "Tests"
+
+    runs-on: "ubuntu-latest"
+
+    strategy:
+      matrix:
+        php-version:
+          - "8.0"
+
+        dependencies:
+          - "lowest"
+          - "locked"
+          - "highest"
+
+    steps:
+      - name: "Checkout"
+        uses: "actions/checkout@v2.3.4"
+
+      - name: "Install PHP with extensions"
+        uses: "shivammathur/setup-php@2.13.0"
+        with:
+          coverage: "none"
+          extensions: "${{ env.PHP_EXTENSIONS }}"
+          php-version: "${{ matrix.php-version }}"
+
+      - name: "Set up problem matchers for phpunit/phpunit"
+        run: "echo \"::add-matcher::${{ runner.tool_cache }}/phpunit.json\""
+
+      - name: "Determine composer cache directory"
+        uses: "./.github/actions/composer/composer/determine-cache-directory"
+
+      - name: "Cache dependencies installed with composer"
+        uses: "actions/cache@v2.1.6"
+        with:
+          path: "${{ env.COMPOSER_CACHE_DIR }}"
+          key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock') }}"
+          restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
+
+      - name: "Install ${{ matrix.dependencies }} dependencies with composer"
+        uses: "./.github/actions/composer/composer/install"
+        with:
+          dependencies: "${{ matrix.dependencies }}"
+
+      - name: "Run unit tests with phpunit/phpunit"
+        run: "vendor/bin/phpunit --configuration=test/Unit/phpunit.xml.dist"
+
+      - name: "Run integration tests with phpunit/phpunit"
+        run: "vendor/bin/phpunit --configuration=test/Integration/phpunit.xml.dist"
+
+  code-coverage:
+    name: "Code Coverage"
+
+    runs-on: "ubuntu-latest"
+
+    strategy:
+      matrix:
+        php-version:
+          - "8.0"
+
+        dependencies:
+          - "locked"
+
+    steps:
+      - name: "Checkout"
+        uses: "actions/checkout@v2.3.4"
+
+      - name: "Install PHP with extensions"
+        uses: "shivammathur/setup-php@2.13.0"
+        with:
+          coverage: "xdebug"
+          extensions: "${{ env.PHP_EXTENSIONS }}"
+          php-version: "${{ matrix.php-version }}"
+
+      - name: "Set up problem matchers for phpunit/phpunit"
+        run: "echo \"::add-matcher::${{ runner.tool_cache }}/phpunit.json\""
+
+      - name: "Determine composer cache directory"
+        uses: "./.github/actions/composer/composer/determine-cache-directory"
+
+      - name: "Cache dependencies installed with composer"
+        uses: "actions/cache@v2.1.6"
+        with:
+          path: "${{ env.COMPOSER_CACHE_DIR }}"
+          key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock') }}"
+          restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
+
+      - name: "Install ${{ matrix.dependencies }} dependencies with composer"
+        uses: "./.github/actions/composer/composer/install"
+        with:
+          dependencies: "${{ matrix.dependencies }}"
+
+      - name: "Collect code coverage with Xdebug and phpunit/phpunit"
+        run: "vendor/bin/phpunit --configuration=test/Unit/phpunit.xml.dist --coverage-clover=.build/phpunit/logs/clover.xml"
+
+      - name: "Send code coverage report to Codecov.io"
+        env:
+          CODECOV_TOKEN: "${{ secrets.CODECOV_TOKEN }}"
+        run: "bash <(curl -s https://codecov.io/bash)"
+
+  mutation-tests:
+    name: "Mutation Tests"
+
+    runs-on: "ubuntu-latest"
+
+    strategy:
+      matrix:
+        php-version:
+          - "8.0"
+
+        dependencies:
+          - "locked"
+
+    steps:
+      - name: "Checkout"
+        uses: "actions/checkout@v2.3.4"
+
+      - name: "Install PHP with extensions"
+        uses: "shivammathur/setup-php@2.13.0"
+        with:
+          coverage: "xdebug"
+          extensions: "${{ env.PHP_EXTENSIONS }}"
+          php-version: "${{ matrix.php-version }}"
+
+      - name: "Determine composer cache directory"
+        uses: "./.github/actions/composer/composer/determine-cache-directory"
+
+      - name: "Cache dependencies installed with composer"
+        uses: "actions/cache@v2.1.6"
+        with:
+          path: "${{ env.COMPOSER_CACHE_DIR }}"
+          key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock', '.tools/infection/composer.lock') }}"
+          restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
+
+      - name: "Install ${{ matrix.dependencies }} dependencies with composer"
+        uses: "./.github/actions/composer/composer/install"
+        with:
+          dependencies: "${{ matrix.dependencies }}"
+
+      - name: "Install infection/infection with composer"
+        uses: "./.github/actions/composer/composer/install"
+        with:
+          dependencies: "${{ matrix.dependencies }}"
+          working-directory: ".tools/infection/"
+
+      - name: "Run mutation tests with Xdebug and infection/infection"
+        run: ".tools/infection/vendor/bin/infection --configuration=infection.json.dist"
+        env:
+          STRYKER_DASHBOARD_API_KEY: "${{ secrets.STRYKER_DASHBOARD_API_KEY }}"

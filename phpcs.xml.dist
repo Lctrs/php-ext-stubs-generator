@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<ruleset
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="vendor/squizlabs/php_codesniffer/phpcs.xsd"
+>
+    <arg name="cache" value=".build/php_codesniffer/phpcs-cache"/>
+
+    <rule ref="Doctrine"/>
+
+    <file>bin/generate-stubs-for-ext</file>
+    <file>config/</file>
+    <file>src/</file>
+    <file>test/</file>
+    <file>update-license.php</file>
+</ruleset>
