@@ -6,10 +6,11 @@ namespace Lctrs\PhpExtStubsGenerator\Infrastructure\Node;
 
 use Lctrs\PhpExtStubsGenerator\Application\Node\GetNodes;
 use Lctrs\PhpExtStubsGenerator\Application\Node\Nodes;
-use PhpParser\Node;
 use PhpParser\Node\Stmt;
+use PhpParser\Node\Stmt\ClassLike;
 use PhpParser\Node\Stmt\Const_;
 use PhpParser\Node\Stmt\Expression;
+use PhpParser\Node\Stmt\Function_;
 use PHPStan\BetterReflection\Reflector\ClassReflector;
 use PHPStan\BetterReflection\Reflector\ConstantReflector;
 use PHPStan\BetterReflection\Reflector\FunctionReflector;
@@ -17,6 +18,7 @@ use ReflectionExtension;
 
 use function array_keys;
 use function array_map;
+use function assert;
 
 final class GetNodesUsingBetterReflection implements GetNodes
 {
@@ -42,13 +44,17 @@ final class GetNodesUsingBetterReflection implements GetNodes
             array_map(
                 fn (
                     string $className
-                ): Stmt\ClassLike => $this->classReflector->reflect($className)->getAst(),
+                ): ClassLike => $this->classReflector->reflect($className)->getAst(),
                 array_keys($extension->getClasses())
             ),
             array_map(
-                fn (
-                    string $functionName
-                ): Node\FunctionLike => $this->functionReflector->reflect($functionName)->getAst(),
+                function (string $functionName): Function_ {
+                    $ast = $this->functionReflector->reflect($functionName)->getAst();
+
+                    assert($ast instanceof Function_);
+
+                    return $ast;
+                },
                 array_keys($extension->getFunctions())
             ),
             array_map(

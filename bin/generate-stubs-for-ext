@@ -20,7 +20,7 @@ foreach (
 }
 
 return static function (InputInterface $input, OutputInterface $output): void {
-    (new Kernel('prod', false))
+    (new Kernel('dev', false))
         ->getContainer()
         ->get(GenerateStubsForExtCommand::class)
         ->run($input, $output);

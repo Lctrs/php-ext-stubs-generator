@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <files psalm-version="4.10.0@916b098b008f6de4543892b1e0651c1c3b92cbfa">
-  <file src="src/Infrastructure/Cli/GenerateStubsForExtCommand.php">
-    <PossiblyNullArgument occurrences="1">
-      <code>$input-&gt;getOption('target')</code>
-    </PossiblyNullArgument>
+  <file src="src/Infrastructure/Node/GetNodesGroupedByNamespace.php">
+    <MixedReturnTypeCoercion occurrences="2">
+      <code>array_values($namespaces)</code>
+      <code>list&lt;Namespace_|T&gt;</code>
+    </MixedReturnTypeCoercion>
+    <UndefinedPropertyFetch occurrences="1">
+      <code>$statement-&gt;namespacedName</code>
+    </UndefinedPropertyFetch>
   </file>
 </files>
