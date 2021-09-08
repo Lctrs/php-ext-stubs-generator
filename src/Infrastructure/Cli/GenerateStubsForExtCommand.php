@@ -5,10 +5,11 @@ declare(strict_types=1);
 namespace Lctrs\PhpExtStubsGenerator\Infrastructure\Cli;
 
 use Lctrs\PhpExtStubsGenerator\Application\Node\GetNodes;
-use PhpParser\Node\FunctionLike;
 use PhpParser\Node\Stmt\ClassLike;
 use PhpParser\Node\Stmt\Const_;
 use PhpParser\Node\Stmt\Expression;
+use PhpParser\Node\Stmt\Function_;
+use PhpParser\Node\Stmt\Namespace_;
 use PhpParser\PrettyPrinter\Standard;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
@@ -46,18 +47,9 @@ final class GenerateStubsForExtCommand extends Command
                 'target',
                 null,
                 InputOption::VALUE_REQUIRED,
+                '',
+                'stubs/'
             );
-    }
-
-    protected function initialize(InputInterface $input, OutputInterface $output): void
-    {
-        parent::initialize($input, $output);
-
-        if ($input->getOption('target') !== null) {
-            return;
-        }
-
-        $input->setOption('target', 'stubs/');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
@@ -71,30 +63,30 @@ final class GenerateStubsForExtCommand extends Command
 
         $nodes = $this->getNodes->forExtension($ext);
 
-        $this->stubConstants($nodes->constants(), $target, $ext);
-        $this->stubFunctions($nodes->functions(), $target, $ext);
         $this->stubClasses($nodes->classes(), $target, $ext);
+        $this->stubFunctions($nodes->functions(), $target, $ext);
+        $this->stubConstants($nodes->constants(), $target, $ext);
 
         return 0;
     }
 
     /**
-     * @param list<Const_|Expression> $constants
+     * @param list<Namespace_|ClassLike> $classes
      */
-    private function stubConstants(array $constants, string $target, string $extension): void
+    private function stubClasses(array $classes, string $target, string $extension): void
     {
-        if ($constants === []) {
+        if ($classes === []) {
             return;
         }
 
         file_put_contents(
-            $target . $extension . '_d.php',
-            $this->printer->prettyPrintFile($constants)
+            $target . $extension . '_c.php',
+            $this->printer->prettyPrintFile($classes)
         );
     }
 
     /**
-     * @param list<FunctionLike> $functions
+     * @param list<Namespace_|Function_> $functions
      */
     private function stubFunctions(array $functions, string $target, string $extension): void
     {
@@ -109,17 +101,17 @@ final class GenerateStubsForExtCommand extends Command
     }
 
     /**
-     * @param list<ClassLike> $classes
+     * @param list<Namespace_|Const_|Expression> $constants
      */
-    private function stubClasses(array $classes, string $target, string $extension): void
+    private function stubConstants(array $constants, string $target, string $extension): void
     {
-        if ($classes === []) {
+        if ($constants === []) {
             return;
         }
 
         file_put_contents(
-            $target . $extension . '_c.php',
-            $this->printer->prettyPrintFile($classes)
+            $target . $extension . '_d.php',
+            $this->printer->prettyPrintFile($constants)
         );
     }
 }

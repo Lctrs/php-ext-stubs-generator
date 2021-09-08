@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use Lctrs\PhpExtStubsGenerator\Application\Node\GetNodes;
 use Lctrs\PhpExtStubsGenerator\Infrastructure\Cli\GenerateStubsForExtCommand;
+use Lctrs\PhpExtStubsGenerator\Infrastructure\Node\GetNodesGroupedByNamespace;
 use Lctrs\PhpExtStubsGenerator\Infrastructure\Node\GetNodesUsingBetterReflection;
 use PHPStan\BetterReflection\BetterReflection;
 use PHPStan\BetterReflection\Reflector\ClassReflector;
@@ -31,7 +32,11 @@ return static function (ContainerConfigurator $containerConfigurator): void {
             service(FunctionReflector::class),
             service(ConstantReflector::class),
         ]);
-    $services->alias(GetNodes::class, GetNodesUsingBetterReflection::class);
+    $services->set(GetNodesGroupedByNamespace::class)
+        ->args([
+            service(GetNodesUsingBetterReflection::class),
+        ]);
+    $services->alias(GetNodes::class, GetNodesGroupedByNamespace::class);
 
     $services->set(GenerateStubsForExtCommand::class)
         ->args([
