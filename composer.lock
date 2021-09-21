@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4d564c4f5b52b830ee1255856415ba38",
+    "content-hash": "9374ffb95bead41a0d326c3355b75c9f",
     "packages": [
         {
             "name": "jetbrains/phpstorm-stubs",
@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/JetBrains/phpstorm-stubs.git",
-                "reference": "ae4803cd064b4580eab2c7e013bf2f751048bc6e"
+                "reference": "ff1b35d1453ad8288d19df092f75d139f46a8fcf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/JetBrains/phpstorm-stubs/zipball/ae4803cd064b4580eab2c7e013bf2f751048bc6e",
-                "reference": "ae4803cd064b4580eab2c7e013bf2f751048bc6e",
+                "url": "https://api.github.com/repos/JetBrains/phpstorm-stubs/zipball/ff1b35d1453ad8288d19df092f75d139f46a8fcf",
+                "reference": "ff1b35d1453ad8288d19df092f75d139f46a8fcf",
                 "shasum": ""
             },
             "require-dev": {
@@ -53,7 +53,7 @@
             "support": {
                 "source": "https://github.com/JetBrains/phpstorm-stubs/tree/master"
             },
-            "time": "2021-09-15T19:10:10+00:00"
+            "time": "2021-09-21T12:18:59+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -171,22 +171,22 @@
         },
         {
             "name": "ondrejmirtes/better-reflection",
-            "version": "4.3.69",
+            "version": "4.3.70",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ondrejmirtes/BetterReflection.git",
-                "reference": "370878a62e8ed064843fa2f91f896189cb5e9704"
+                "reference": "ec87deadc70f01c6d66ed22d653b7292cccdcbc9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ondrejmirtes/BetterReflection/zipball/370878a62e8ed064843fa2f91f896189cb5e9704",
-                "reference": "370878a62e8ed064843fa2f91f896189cb5e9704",
+                "url": "https://api.github.com/repos/ondrejmirtes/BetterReflection/zipball/ec87deadc70f01c6d66ed22d653b7292cccdcbc9",
+                "reference": "ec87deadc70f01c6d66ed22d653b7292cccdcbc9",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
                 "jetbrains/phpstorm-stubs": "dev-master#0a73df114cdea7f30c8b5f6fbfbf8e6839a89e88",
-                "nikic/php-parser": "^4.12.0",
+                "nikic/php-parser": "^4.13.0",
                 "php": ">=7.1.0"
             },
             "require-dev": {
@@ -235,9 +235,9 @@
             ],
             "description": "Better Reflection - an improved code reflection API",
             "support": {
-                "source": "https://github.com/ondrejmirtes/BetterReflection/tree/4.3.69"
+                "source": "https://github.com/ondrejmirtes/BetterReflection/tree/4.3.70"
             },
-            "time": "2021-09-17T13:57:28+00:00"
+            "time": "2021-09-20T14:59:55+00:00"
         },
         {
             "name": "psr/container",
