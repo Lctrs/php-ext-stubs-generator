@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ed5fca4e112c7ef2a10ea7723730cb37",
+    "content-hash": "3586b29624f27b37d54b9884c2c5a905",
     "packages": [
         {
             "name": "jetbrains/phpstorm-stubs",
@@ -171,16 +171,16 @@
         },
         {
             "name": "ondrejmirtes/better-reflection",
-            "version": "4.3.79",
+            "version": "4.3.80",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ondrejmirtes/BetterReflection.git",
-                "reference": "fffbbc5d6d9bbb03d26af11b153847e561c4d1cb"
+                "reference": "56f215f08c4421f69e2d0e82096601b0b4fbaa2c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ondrejmirtes/BetterReflection/zipball/fffbbc5d6d9bbb03d26af11b153847e561c4d1cb",
-                "reference": "fffbbc5d6d9bbb03d26af11b153847e561c4d1cb",
+                "url": "https://api.github.com/repos/ondrejmirtes/BetterReflection/zipball/56f215f08c4421f69e2d0e82096601b0b4fbaa2c",
+                "reference": "56f215f08c4421f69e2d0e82096601b0b4fbaa2c",
                 "shasum": ""
             },
             "require": {
@@ -235,9 +235,9 @@
             ],
             "description": "Better Reflection - an improved code reflection API",
             "support": {
-                "source": "https://github.com/ondrejmirtes/BetterReflection/tree/4.3.79"
+                "source": "https://github.com/ondrejmirtes/BetterReflection/tree/4.3.80"
             },
-            "time": "2021-11-09T09:09:38+00:00"
+            "time": "2021-11-11T09:24:16+00:00"
         },
         {
             "name": "psr/container",
