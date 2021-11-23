@@ -14,7 +14,7 @@
     "php": ">=8.0.0 <8.2.0",
     "nikic/php-parser": "^4.13.1",
     "nyholm/sunflower": "^0.2.1",
-    "ondrejmirtes/better-reflection": "^4.3.80",
+    "ondrejmirtes/better-reflection": "^4.3.81",
     "symfony/console": "^5.3.11",
     "symfony/runtime": "^5.3.10",
     "thecodingmachine/safe": "^1.3.3"
