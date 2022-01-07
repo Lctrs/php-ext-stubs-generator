@@ -37,6 +37,9 @@
     "vimeo/psalm": "^4.18"
   },
   "config": {
+    "allow-plugins": {
+      "ergebnis/composer-normalize": true
+    },
     "preferred-install": "dist",
     "sort-packages": true
   },
