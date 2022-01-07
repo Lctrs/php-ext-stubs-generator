@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5e79cecee5691b4a26826f1d89bd3698",
+    "content-hash": "ece9babae64f2da860aefeabf8b5edc7",
     "packages": [
         {
             "name": "composer/pcre",
@@ -2250,8 +2250,8 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.4.7 || ^8.0.0"
+        "php": "^8.0.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.2.0"
 }
