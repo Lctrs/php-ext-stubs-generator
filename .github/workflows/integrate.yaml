@@ -65,7 +65,7 @@ jobs:
         run: "composer normalize --ansi --dry-run"
 
       - name: "Run symplify/config-transformer"
-        run: "vendor/bin/config-transformer switch-format config/ --target-symfony-version 5.3 --dry-run"
+        run: "vendor/bin/config-transformer switch-format config/ --dry-run"
 
       - name: "Create cache directory for squizlabs/php_codesniffer"
         run: "mkdir -p .build/php_codesniffer"
