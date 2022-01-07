@@ -16,13 +16,13 @@
 Run
 
 ```sh
-$ composer require --dev lctrs/php-ext-stubs-generator
+composer require --dev lctrs/php-ext-stubs-generator
 ```
 
 ## Usage
 
 ```sh
-$ php vendor/bin/generate-stubs-for-ext extension_name
+php vendor/bin/generate-stubs-for-ext extension_name
 ```
 
 By default, the command will places the generated stubs in a directory named `stubs/` at the root of the project. 

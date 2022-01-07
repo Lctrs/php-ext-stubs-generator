@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.10.0@916b098b008f6de4543892b1e0651c1c3b92cbfa">
+<files psalm-version="4.18.0.0">
+  <file src="src/Infrastructure/Cli/GenerateStubsForExtCommand.php">
+    <RedundantCondition occurrences="4">
+      <code>assert(is_string($ext))</code>
+      <code>assert(is_string($target))</code>
+      <code>is_string($ext)</code>
+      <code>is_string($target)</code>
+    </RedundantCondition>
+  </file>
   <file src="src/Infrastructure/Node/GetNodesGroupedByNamespace.php">
     <MixedReturnTypeCoercion occurrences="2">
       <code>array_values($namespaces)</code>
