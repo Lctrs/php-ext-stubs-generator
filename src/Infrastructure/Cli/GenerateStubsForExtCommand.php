@@ -17,7 +17,9 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
+use function assert;
 use function is_dir;
+use function is_string;
 use function rtrim;
 use function Safe\file_put_contents;
 use function Safe\mkdir;
@@ -54,8 +56,12 @@ final class GenerateStubsForExtCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $ext    = $input->getArgument('ext');
-        $target = rtrim($input->getOption('target'), '/') . '/';
+        $ext = $input->getArgument('ext');
+        assert(is_string($ext));
+        $target = $input->getOption('target');
+        assert(is_string($target));
+
+        $target = rtrim($target, '/') . '/';
 
         if (! is_dir($target)) {
             mkdir($target, 0755, true);
