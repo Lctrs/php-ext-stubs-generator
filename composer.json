@@ -1,15 +1,19 @@
 {
   "name": "lctrs/php-ext-stubs-generator",
-  "type": "library",
   "description": "Generate stubs for any PHP extension.",
-  "homepage": "https://github.com/Lctrs/php-ext-stubs-generator",
   "license": "MIT",
+  "type": "library",
   "authors": [
     {
       "name": "Jérôme Parmentier",
       "email": "jerome@prmntr.me"
     }
   ],
+  "homepage": "https://github.com/Lctrs/php-ext-stubs-generator",
+  "support": {
+    "issues": "https://github.com/Lctrs/php-ext-stubs-generator/issues",
+    "source": "https://github.com/Lctrs/php-ext-stubs-generator"
+  },
   "require": {
     "php": ">=8.0.0 <8.2.0",
     "nikic/php-parser": "^4.13.2",
@@ -36,17 +40,8 @@
     "thecodingmachine/phpstan-safe-rule": "^1.1.0",
     "vimeo/psalm": "^4.18"
   },
-  "config": {
-    "allow-plugins": {
-      "composer/package-versions-deprecated": true,
-      "dealerdirect/phpcodesniffer-composer-installer": true,
-      "ergebnis/composer-normalize": true,
-      "phpstan/extension-installer": true,
-      "symfony/runtime": true
-    },
-    "preferred-install": "dist",
-    "sort-packages": true
-  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
   "autoload": {
     "psr-4": {
       "Lctrs\\PhpExtStubsGenerator\\": "src/"
@@ -57,13 +52,18 @@
       "Lctrs\\PhpExtStubsGenerator\\Test\\": "test/"
     }
   },
-  "minimum-stability": "dev",
-  "prefer-stable": true,
   "bin": [
     "bin/generate-stubs-for-ext"
   ],
-  "support": {
-    "issues": "https://github.com/Lctrs/php-ext-stubs-generator/issues",
-    "source": "https://github.com/Lctrs/php-ext-stubs-generator"
+  "config": {
+    "allow-plugins": {
+      "composer/package-versions-deprecated": true,
+      "dealerdirect/phpcodesniffer-composer-installer": true,
+      "ergebnis/composer-normalize": true,
+      "phpstan/extension-installer": true,
+      "symfony/runtime": true
+    },
+    "preferred-install": "dist",
+    "sort-packages": true
   }
 }
