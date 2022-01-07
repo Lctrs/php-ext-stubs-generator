@@ -2,5 +2,10 @@
   "require": {
     "php": "^7.4.7 || ^8.0.0",
     "infection/infection": "0.25.5"
+  },
+  "config": {
+    "allow-plugins": {
+      "infection/extension-installer": true
+    }
   }
 }
