@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "922cf08cd4451e89f4b40fcc80441150",
+    "content-hash": "584bdc5dbfa05fe21ec1907ac393ce95",
     "packages": [
         {
             "name": "jetbrains/phpstorm-stubs",
@@ -6657,16 +6657,16 @@
         },
         {
             "name": "symplify/config-transformer",
-            "version": "10.0.11",
+            "version": "10.0.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/config-transformer.git",
-                "reference": "b30a01e0de10ee2d755deafe0bfaaae8de172578"
+                "reference": "f0b147d6c56bb860839ead0c602100c9628981b1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/config-transformer/zipball/b30a01e0de10ee2d755deafe0bfaaae8de172578",
-                "reference": "b30a01e0de10ee2d755deafe0bfaaae8de172578",
+                "url": "https://api.github.com/repos/symplify/config-transformer/zipball/f0b147d6c56bb860839ead0c602100c9628981b1",
+                "reference": "f0b147d6c56bb860839ead0c602100c9628981b1",
                 "shasum": ""
             },
             "require": {
@@ -6682,7 +6682,7 @@
             ],
             "description": "Prefixed version of Symfony YAML/XML to PHP/YAML config converter",
             "support": {
-                "source": "https://github.com/symplify/config-transformer/tree/10.0.11"
+                "source": "https://github.com/symplify/config-transformer/tree/10.0.13"
             },
             "funding": [
                 {
@@ -6694,7 +6694,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-01-17T00:42:20+00:00"
+            "time": "2022-01-20T11:26:09+00:00"
         },
         {
             "name": "thecodingmachine/phpstan-safe-rule",
