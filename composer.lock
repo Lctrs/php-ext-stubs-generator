@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "57161e93e9bf081c6dfdea1ff1c75ce6",
+    "content-hash": "98b26187a518de66849dfc831074624f",
     "packages": [
         {
             "name": "jetbrains/phpstorm-stubs",
@@ -838,12 +838,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Symfony\\Polyfill\\Intl\\Grapheme\\": ""
-                },
                 "files": [
                     "bootstrap.php"
-                ]
+                ],
+                "psr-4": {
+                    "Symfony\\Polyfill\\Intl\\Grapheme\\": ""
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -919,12 +919,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Symfony\\Polyfill\\Intl\\Normalizer\\": ""
-                },
                 "files": [
                     "bootstrap.php"
                 ],
+                "psr-4": {
+                    "Symfony\\Polyfill\\Intl\\Normalizer\\": ""
+                },
                 "classmap": [
                     "Resources/stubs"
                 ]
@@ -1083,12 +1083,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Symfony\\Polyfill\\Php81\\": ""
-                },
                 "files": [
                     "bootstrap.php"
                 ],
+                "psr-4": {
+                    "Symfony\\Polyfill\\Php81\\": ""
+                },
                 "classmap": [
                     "Resources/stubs"
                 ]
@@ -1830,16 +1830,16 @@
         },
         {
             "name": "composer/semver",
-            "version": "3.2.8",
+            "version": "3.2.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/semver.git",
-                "reference": "3976a9e563da06e8dd8ca856fa2adcd66cdd98f3"
+                "reference": "a951f614bd64dcd26137bc9b7b2637ddcfc57649"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/semver/zipball/3976a9e563da06e8dd8ca856fa2adcd66cdd98f3",
-                "reference": "3976a9e563da06e8dd8ca856fa2adcd66cdd98f3",
+                "url": "https://api.github.com/repos/composer/semver/zipball/a951f614bd64dcd26137bc9b7b2637ddcfc57649",
+                "reference": "a951f614bd64dcd26137bc9b7b2637ddcfc57649",
                 "shasum": ""
             },
             "require": {
@@ -1891,7 +1891,7 @@
             "support": {
                 "irc": "irc://irc.freenode.org/composer",
                 "issues": "https://github.com/composer/semver/issues",
-                "source": "https://github.com/composer/semver/tree/3.2.8"
+                "source": "https://github.com/composer/semver/tree/3.2.9"
             },
             "funding": [
                 {
@@ -1907,7 +1907,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-02-04T12:12:24+00:00"
+            "time": "2022-02-04T13:58:43+00:00"
         },
         {
             "name": "composer/xdebug-handler",
@@ -4139,16 +4139,16 @@
         },
         {
             "name": "psalm/plugin-symfony",
-            "version": "v3.1.2",
+            "version": "v3.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/psalm/psalm-plugin-symfony.git",
-                "reference": "cd25832215c35770bb3a6a42a00f34cd7672697c"
+                "reference": "f5348e9a7c8b2db247a8fda639b6e2b98471e22e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/psalm/psalm-plugin-symfony/zipball/cd25832215c35770bb3a6a42a00f34cd7672697c",
-                "reference": "cd25832215c35770bb3a6a42a00f34cd7672697c",
+                "url": "https://api.github.com/repos/psalm/psalm-plugin-symfony/zipball/f5348e9a7c8b2db247a8fda639b6e2b98471e22e",
+                "reference": "f5348e9a7c8b2db247a8fda639b6e2b98471e22e",
                 "shasum": ""
             },
             "require": {
@@ -4158,6 +4158,7 @@
                 "vimeo/psalm": "^4.12"
             },
             "require-dev": {
+                "doctrine/annotations": "^1.8",
                 "doctrine/orm": "^2.7",
                 "phpunit/phpunit": "~7.5 || ~9.5",
                 "symfony/cache-contracts": "^1.0 || ^2.0",
@@ -4197,9 +4198,9 @@
             "description": "Psalm Plugin for Symfony",
             "support": {
                 "issues": "https://github.com/psalm/psalm-plugin-symfony/issues",
-                "source": "https://github.com/psalm/psalm-plugin-symfony/tree/v3.1.2"
+                "source": "https://github.com/psalm/psalm-plugin-symfony/tree/v3.1.3"
             },
-            "time": "2022-01-02T20:22:02+00:00"
+            "time": "2022-02-08T07:02:16+00:00"
         },
         {
             "name": "psr/cache",
