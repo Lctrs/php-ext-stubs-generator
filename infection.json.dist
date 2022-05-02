@@ -1,8 +1,8 @@
 {
   "ignoreMsiWithNoMutations": true,
   "logs": {
-    "badge": {
-      "branch": "master"
+    "stryker": {
+      "report": "master"
     },
     "text": ".build/infection/infection-log.txt"
   },
