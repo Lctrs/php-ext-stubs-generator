@@ -3327,16 +3327,16 @@
         },
         {
             "name": "phpstan/phpdoc-parser",
-            "version": "1.4.1",
+            "version": "1.4.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpdoc-parser.git",
-                "reference": "05333065c88f9518e08b094bdd10a4a9e538b2d4"
+                "reference": "129a63b3bc7caeb593c224c41f420675e63cfefc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/05333065c88f9518e08b094bdd10a4a9e538b2d4",
-                "reference": "05333065c88f9518e08b094bdd10a4a9e538b2d4",
+                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/129a63b3bc7caeb593c224c41f420675e63cfefc",
+                "reference": "129a63b3bc7caeb593c224c41f420675e63cfefc",
                 "shasum": ""
             },
             "require": {
@@ -3365,9 +3365,9 @@
             "description": "PHPDoc parser with support for nullable, intersection and generic types",
             "support": {
                 "issues": "https://github.com/phpstan/phpdoc-parser/issues",
-                "source": "https://github.com/phpstan/phpdoc-parser/tree/1.4.1"
+                "source": "https://github.com/phpstan/phpdoc-parser/tree/1.4.5"
             },
-            "time": "2022-03-29T09:28:16+00:00"
+            "time": "2022-04-22T11:11:01+00:00"
         },
         {
             "name": "phpstan/phpstan",
@@ -5602,16 +5602,16 @@
         },
         {
             "name": "symfony/error-handler",
-            "version": "v6.0.7",
+            "version": "v6.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/error-handler.git",
-                "reference": "e600c54e5b30555eecea3ffe4314e58f832e78ee"
+                "reference": "5e2795163acbd13b3cd46835c9f8f6c5d0a3a280"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/error-handler/zipball/e600c54e5b30555eecea3ffe4314e58f832e78ee",
-                "reference": "e600c54e5b30555eecea3ffe4314e58f832e78ee",
+                "url": "https://api.github.com/repos/symfony/error-handler/zipball/5e2795163acbd13b3cd46835c9f8f6c5d0a3a280",
+                "reference": "5e2795163acbd13b3cd46835c9f8f6c5d0a3a280",
                 "shasum": ""
             },
             "require": {
@@ -5653,7 +5653,7 @@
             "description": "Provides tools to manage errors and ease debugging PHP code",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/error-handler/tree/v6.0.7"
+                "source": "https://github.com/symfony/error-handler/tree/v6.0.8"
             },
             "funding": [
                 {
@@ -5669,7 +5669,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-03-18T16:21:55+00:00"
+            "time": "2022-04-12T16:11:42+00:00"
         },
         {
             "name": "symfony/event-dispatcher",
@@ -5835,16 +5835,16 @@
         },
         {
             "name": "symfony/finder",
-            "version": "v6.0.3",
+            "version": "v6.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
-                "reference": "8661b74dbabc23223f38c9b99d3f8ade71170430"
+                "reference": "af7edab28d17caecd1f40a9219fc646ae751c21f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/8661b74dbabc23223f38c9b99d3f8ade71170430",
-                "reference": "8661b74dbabc23223f38c9b99d3f8ade71170430",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/af7edab28d17caecd1f40a9219fc646ae751c21f",
+                "reference": "af7edab28d17caecd1f40a9219fc646ae751c21f",
                 "shasum": ""
             },
             "require": {
@@ -5876,7 +5876,7 @@
             "description": "Finds files and directories via an intuitive fluent interface",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/finder/tree/v6.0.3"
+                "source": "https://github.com/symfony/finder/tree/v6.0.8"
             },
             "funding": [
                 {
@@ -5892,7 +5892,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-01-26T17:23:29+00:00"
+            "time": "2022-04-15T08:07:58+00:00"
         },
         {
             "name": "symfony/framework-bundle",
@@ -6396,16 +6396,16 @@
         },
         {
             "name": "symfony/var-dumper",
-            "version": "v6.0.6",
+            "version": "v6.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
-                "reference": "38358405ae948963c50a3aae3dfea598223ba15e"
+                "reference": "fa61dfb4bd3068df2492013dc65f3190e9f550c0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/38358405ae948963c50a3aae3dfea598223ba15e",
-                "reference": "38358405ae948963c50a3aae3dfea598223ba15e",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/fa61dfb4bd3068df2492013dc65f3190e9f550c0",
+                "reference": "fa61dfb4bd3068df2492013dc65f3190e9f550c0",
                 "shasum": ""
             },
             "require": {
@@ -6464,7 +6464,7 @@
                 "dump"
             ],
             "support": {
-                "source": "https://github.com/symfony/var-dumper/tree/v6.0.6"
+                "source": "https://github.com/symfony/var-dumper/tree/v6.0.8"
             },
             "funding": [
                 {
@@ -6480,7 +6480,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-03-02T12:58:14+00:00"
+            "time": "2022-04-26T13:22:23+00:00"
         },
         {
             "name": "symfony/var-exporter",
