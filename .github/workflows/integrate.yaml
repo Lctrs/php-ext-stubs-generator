@@ -203,10 +203,10 @@ jobs:
           dependency-versions: "${{ matrix.dependencies }}"
 
       - name: "Run unit tests with phpunit/phpunit"
-        run: "vendor/bin/phpunit --configuration=test/Unit/phpunit.xml.dist"
+        run: "vendor/bin/phpunit --colors=always --configuration=test/Unit/phpunit.xml.dist"
 
       - name: "Run integration tests with phpunit/phpunit"
-        run: "vendor/bin/phpunit --configuration=test/Integration/phpunit.xml.dist"
+        run: "vendor/bin/phpunit --colors=always --configuration=test/Integration/phpunit.xml.dist"
 
   code-coverage:
     name: "Code Coverage"
@@ -243,7 +243,7 @@ jobs:
           dependency-versions: "${{ matrix.dependencies }}"
 
       - name: "Collect code coverage with Xdebug and phpunit/phpunit"
-        run: "vendor/bin/phpunit --configuration=test/Unit/phpunit.xml.dist --coverage-clover=.build/phpunit/logs/clover.xml"
+        run: "vendor/bin/phpunit --colors=always --configuration=test/Unit/phpunit.xml.dist --coverage-clover=.build/phpunit/logs/clover.xml"
 
       - name: "Send code coverage report to Codecov.io"
         env:
