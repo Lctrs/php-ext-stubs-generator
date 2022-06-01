@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0d54f834d11f4e777111298d37b272ad",
+    "content-hash": "ad6b221a6503371615f38f1b265ffa50",
     "packages": [
         {
             "name": "jetbrains/phpstorm-stubs",
@@ -6546,16 +6546,16 @@
         },
         {
             "name": "symplify/config-transformer",
-            "version": "10.2.7",
+            "version": "10.2.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/config-transformer.git",
-                "reference": "0b78ff71ca428e8cc187b3891aa3503bebb2a5bc"
+                "reference": "1d6b76379d08e83460d77dda198e822eab2568b5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/config-transformer/zipball/0b78ff71ca428e8cc187b3891aa3503bebb2a5bc",
-                "reference": "0b78ff71ca428e8cc187b3891aa3503bebb2a5bc",
+                "url": "https://api.github.com/repos/symplify/config-transformer/zipball/1d6b76379d08e83460d77dda198e822eab2568b5",
+                "reference": "1d6b76379d08e83460d77dda198e822eab2568b5",
                 "shasum": ""
             },
             "require": {
@@ -6571,7 +6571,7 @@
             ],
             "description": "Prefixed version of Symfony YAML/XML to PHP/YAML config converter",
             "support": {
-                "source": "https://github.com/symplify/config-transformer/tree/10.2.7"
+                "source": "https://github.com/symplify/config-transformer/tree/10.2.8"
             },
             "funding": [
                 {
@@ -6583,7 +6583,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-05-21T11:11:41+00:00"
+            "time": "2022-06-01T10:13:40+00:00"
         },
         {
             "name": "thecodingmachine/phpstan-safe-rule",
