@@ -15,9 +15,9 @@ use function array_key_exists;
 use function array_values;
 use function count;
 use function get_debug_type;
+use function ksort;
 use function property_exists;
-use function Safe\ksort;
-use function Safe\sprintf;
+use function sprintf;
 
 final class GetNodesGroupedByNamespace implements GetNodes
 {
