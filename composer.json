@@ -21,7 +21,7 @@
     "roave/better-reflection": "^5.4.0",
     "symfony/console": "^6.0.9",
     "symfony/runtime": "^6.0.8",
-    "thecodingmachine/safe": "^2.2.0"
+    "thecodingmachine/safe": "^2.2.1"
   },
   "require-dev": {
     "doctrine/coding-standard": "9.0.0",
