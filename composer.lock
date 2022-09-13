@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "95cb68265b47b08921206049180c36fd",
+    "content-hash": "db0d77fa1d701855ffa1ae8f32313576",
     "packages": [
         {
             "name": "jetbrains/phpstorm-stubs",
@@ -223,23 +223,23 @@
         },
         {
             "name": "roave/better-reflection",
-            "version": "5.10.0",
+            "version": "5.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/BetterReflection.git",
-                "reference": "2658607528826d2ccb6fcd271f3387cc064ea684"
+                "reference": "3e9820ae14694b280861ad4afc2c796353d34281"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/BetterReflection/zipball/2658607528826d2ccb6fcd271f3387cc064ea684",
-                "reference": "2658607528826d2ccb6fcd271f3387cc064ea684",
+                "url": "https://api.github.com/repos/Roave/BetterReflection/zipball/3e9820ae14694b280861ad4afc2c796353d34281",
+                "reference": "3e9820ae14694b280861ad4afc2c796353d34281",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
                 "jetbrains/phpstorm-stubs": "2022.2",
                 "nikic/php-parser": "^4.15.1",
-                "php": "~8.0.12 || ~8.1.0",
+                "php": "~8.0.12 || ~8.1.0 || ~8.2.0",
                 "roave/signature": "^1.6"
             },
             "conflict": {
@@ -291,9 +291,9 @@
             "description": "Better Reflection - an improved code reflection API",
             "support": {
                 "issues": "https://github.com/Roave/BetterReflection/issues",
-                "source": "https://github.com/Roave/BetterReflection/tree/5.10.0"
+                "source": "https://github.com/Roave/BetterReflection/tree/5.11.0"
             },
-            "time": "2022-09-10T17:42:45+00:00"
+            "time": "2022-09-13T09:05:12+00:00"
         },
         {
             "name": "roave/signature",
