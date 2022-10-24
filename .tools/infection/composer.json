@@ -1,7 +1,7 @@
 {
   "require": {
     "php": "^8.0.0",
-    "infection/infection": "0.26.15"
+    "infection/infection": "0.26.16"
   },
   "config": {
     "allow-plugins": {
