@@ -34,7 +34,7 @@
     "phpstan/phpstan-strict-rules": "1.4.4",
     "phpstan/phpstan-symfony": "1.2.16",
     "phpunit/phpunit": "9.5.26",
-    "psalm/plugin-phpunit": "0.18.3",
+    "psalm/plugin-phpunit": "0.18.4",
     "psalm/plugin-symfony": "4.0.0",
     "symplify/config-transformer": "11.1.17",
     "thecodingmachine/phpstan-safe-rule": "1.2.0",
