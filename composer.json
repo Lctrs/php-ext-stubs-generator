@@ -24,7 +24,7 @@
     "thecodingmachine/safe": "^2.4.0"
   },
   "require-dev": {
-    "doctrine/coding-standard": "9.0.0",
+    "doctrine/coding-standard": "11.0.0",
     "ergebnis/composer-normalize": "2.29.0",
     "ergebnis/license": "2.1.0",
     "phpstan/extension-installer": "1.2.0",
