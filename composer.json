@@ -35,7 +35,7 @@
     "phpstan/phpstan-symfony": "1.2.19",
     "phpunit/phpunit": "9.5.27",
     "psalm/plugin-phpunit": "0.18.4",
-    "psalm/plugin-symfony": "4.0.1",
+    "psalm/plugin-symfony": "4.0.2",
     "symplify/config-transformer": "11.1.26.72",
     "thecodingmachine/phpstan-safe-rule": "1.2.0",
     "vimeo/psalm": "4.30.0"
