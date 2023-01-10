@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4d7784629d1f8ee57faea92483b22782",
+    "content-hash": "1c4d4c23f49a29cca1b554ab2757180d",
     "packages": [
         {
             "name": "jetbrains/phpstorm-stubs",
@@ -6474,16 +6474,16 @@
         },
         {
             "name": "symplify/config-transformer",
-            "version": "11.1.26.72",
+            "version": "11.1.27.72",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/config-transformer.git",
-                "reference": "fcc8775b12caf40cb96be72a12301b74eb17c613"
+                "reference": "bd1c6b3502dbb0d440ddd41989467b7a810941d9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/config-transformer/zipball/fcc8775b12caf40cb96be72a12301b74eb17c613",
-                "reference": "fcc8775b12caf40cb96be72a12301b74eb17c613",
+                "url": "https://api.github.com/repos/symplify/config-transformer/zipball/bd1c6b3502dbb0d440ddd41989467b7a810941d9",
+                "reference": "bd1c6b3502dbb0d440ddd41989467b7a810941d9",
                 "shasum": ""
             },
             "require": {
@@ -6493,6 +6493,11 @@
                 "bin/config-transformer"
             ],
             "type": "library",
+            "autoload": {
+                "files": [
+                    "bootstrap.php"
+                ]
+            },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
@@ -6500,7 +6505,7 @@
             "description": "Prefixed version of Symfony YAML/XML to PHP/YAML config converter",
             "support": {
                 "issues": "https://github.com/symplify/config-transformer/issues",
-                "source": "https://github.com/symplify/config-transformer/tree/11.1.26.72"
+                "source": "https://github.com/symplify/config-transformer/tree/11.1.27.72"
             },
             "funding": [
                 {
@@ -6512,7 +6517,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-01-05T15:26:46+00:00"
+            "time": "2023-01-10T10:11:36+00:00"
         },
         {
             "name": "thecodingmachine/phpstan-safe-rule",
