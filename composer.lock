@@ -6226,16 +6226,16 @@
         },
         {
             "name": "symfony/routing",
-            "version": "v6.0.17",
+            "version": "v6.0.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/routing.git",
-                "reference": "61687a0aa80f6807c52e116ee64072f6ec53780c"
+                "reference": "e56ca9b41c1ec447193474cd86ad7c0b547755ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/routing/zipball/61687a0aa80f6807c52e116ee64072f6ec53780c",
-                "reference": "61687a0aa80f6807c52e116ee64072f6ec53780c",
+                "url": "https://api.github.com/repos/symfony/routing/zipball/e56ca9b41c1ec447193474cd86ad7c0b547755ac",
+                "reference": "e56ca9b41c1ec447193474cd86ad7c0b547755ac",
                 "shasum": ""
             },
             "require": {
@@ -6294,7 +6294,7 @@
                 "url"
             ],
             "support": {
-                "source": "https://github.com/symfony/routing/tree/v6.0.17"
+                "source": "https://github.com/symfony/routing/tree/v6.0.19"
             },
             "funding": [
                 {
@@ -6310,7 +6310,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-12-20T16:40:04+00:00"
+            "time": "2023-01-01T08:36:10+00:00"
         },
         {
             "name": "symfony/var-dumper",
