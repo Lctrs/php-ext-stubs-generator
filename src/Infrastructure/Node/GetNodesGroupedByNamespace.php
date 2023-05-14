@@ -21,11 +21,8 @@ use function sprintf;
 
 final class GetNodesGroupedByNamespace implements GetNodes
 {
-    private GetNodes $getNodes;
-
-    public function __construct(GetNodes $getNodes)
+    public function __construct(private GetNodes $getNodes)
     {
-        $this->getNodes = $getNodes;
     }
 
     public function forExtension(string $name): Nodes
@@ -63,7 +60,7 @@ final class GetNodesGroupedByNamespace implements GetNodes
                 throw new RuntimeException(sprintf(
                     'Unsupported namespacedName property type. Expected one of "%s", "%s" given.',
                     Name::class,
-                    get_debug_type($statement->namespacedName)
+                    get_debug_type($statement->namespacedName),
                 ));
             }
 
