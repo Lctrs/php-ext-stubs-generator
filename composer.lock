@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "53f4c1dc6f196a050a2451e2e9254fd5",
+    "content-hash": "d8fcbdeb6696f80c9bb16e526fd2ddd6",
     "packages": [
         {
             "name": "jetbrains/phpstorm-stubs",
@@ -6669,16 +6669,16 @@
         },
         {
             "name": "symplify/config-transformer",
-            "version": "11.1.27.72",
+            "version": "12.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/config-transformer.git",
-                "reference": "bd1c6b3502dbb0d440ddd41989467b7a810941d9"
+                "reference": "1b21a1ea429a378319d6313b4b024492b2f776c9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/config-transformer/zipball/bd1c6b3502dbb0d440ddd41989467b7a810941d9",
-                "reference": "bd1c6b3502dbb0d440ddd41989467b7a810941d9",
+                "url": "https://api.github.com/repos/symplify/config-transformer/zipball/1b21a1ea429a378319d6313b4b024492b2f776c9",
+                "reference": "1b21a1ea429a378319d6313b4b024492b2f776c9",
                 "shasum": ""
             },
             "require": {
@@ -6700,7 +6700,7 @@
             "description": "Prefixed version of Symfony YAML/XML to PHP/YAML config converter",
             "support": {
                 "issues": "https://github.com/symplify/config-transformer/issues",
-                "source": "https://github.com/symplify/config-transformer/tree/11.1.27.72"
+                "source": "https://github.com/symplify/config-transformer/tree/12.0.5"
             },
             "funding": [
                 {
@@ -6712,7 +6712,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-01-10T10:11:36+00:00"
+            "time": "2023-02-22T19:32:35+00:00"
         },
         {
             "name": "thecodingmachine/phpstan-safe-rule",
