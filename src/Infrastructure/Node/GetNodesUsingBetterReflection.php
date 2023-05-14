@@ -20,11 +20,8 @@ use function assert;
 
 final class GetNodesUsingBetterReflection implements GetNodes
 {
-    private Reflector $reflector;
-
-    public function __construct(Reflector $reflector)
+    public function __construct(private Reflector $reflector)
     {
-        $this->reflector = $reflector;
     }
 
     public function forExtension(string $name): Nodes
@@ -34,9 +31,9 @@ final class GetNodesUsingBetterReflection implements GetNodes
         return new Nodes(
             array_map(
                 fn (
-                    string $className
+                    string $className,
                 ): ClassLike => $this->reflector->reflectClass($className)->getAst(),
-                array_keys($extension->getClasses())
+                array_keys($extension->getClasses()),
             ),
             array_map(
                 function (string $functionName): Function_ {
@@ -46,7 +43,7 @@ final class GetNodesUsingBetterReflection implements GetNodes
 
                     return $ast;
                 },
-                array_keys($extension->getFunctions())
+                array_keys($extension->getFunctions()),
             ),
             array_map(
                 function (string $constantName): Const_|Expression {
@@ -58,7 +55,7 @@ final class GetNodesUsingBetterReflection implements GetNodes
 
                     return new Expression($ast, $ast->getAttributes());
                 },
-                array_keys($extension->getConstants())
+                array_keys($extension->getConstants()),
             ),
         );
     }

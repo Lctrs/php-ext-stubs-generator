@@ -14,10 +14,10 @@ $license = MIT::markdown(
     __DIR__ . '/LICENSE.md',
     Range::since(
         Year::fromString('2021'),
-        new DateTimeZone('UTC')
+        new DateTimeZone('UTC'),
     ),
     Holder::fromString('Jérôme Parmentier'),
-    Url::fromString('https://github.com/Lctrs/php-ext-stubs-generator')
+    Url::fromString('https://github.com/Lctrs/php-ext-stubs-generator'),
 );
 
 $license->save();

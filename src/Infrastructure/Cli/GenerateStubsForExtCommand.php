@@ -26,15 +26,13 @@ use function Safe\mkdir;
 
 final class GenerateStubsForExtCommand extends Command
 {
-    private GetNodes $getNodes;
     private Standard $printer;
 
-    public function __construct(GetNodes $getNodes)
+    public function __construct(private GetNodes $getNodes)
     {
         parent::__construct();
 
-        $this->getNodes = $getNodes;
-        $this->printer  = new Standard();
+        $this->printer = new Standard();
     }
 
     protected function configure(): void
@@ -50,7 +48,7 @@ final class GenerateStubsForExtCommand extends Command
                 null,
                 InputOption::VALUE_REQUIRED,
                 '',
-                'stubs/'
+                'stubs/',
             );
     }
 
@@ -76,9 +74,7 @@ final class GenerateStubsForExtCommand extends Command
         return 0;
     }
 
-    /**
-     * @param list<Namespace_|ClassLike> $classes
-     */
+    /** @param list<Namespace_|ClassLike> $classes */
     private function stubClasses(array $classes, string $target, string $extension): void
     {
         if ($classes === []) {
@@ -87,13 +83,11 @@ final class GenerateStubsForExtCommand extends Command
 
         file_put_contents(
             $target . $extension . '_c.php',
-            $this->printer->prettyPrintFile($classes)
+            $this->printer->prettyPrintFile($classes),
         );
     }
 
-    /**
-     * @param list<Namespace_|Function_> $functions
-     */
+    /** @param list<Namespace_|Function_> $functions */
     private function stubFunctions(array $functions, string $target, string $extension): void
     {
         if ($functions === []) {
@@ -102,13 +96,11 @@ final class GenerateStubsForExtCommand extends Command
 
         file_put_contents(
             $target . $extension . '.php',
-            $this->printer->prettyPrintFile($functions)
+            $this->printer->prettyPrintFile($functions),
         );
     }
 
-    /**
-     * @param list<Namespace_|Const_|Expression> $constants
-     */
+    /** @param list<Namespace_|Const_|Expression> $constants */
     private function stubConstants(array $constants, string $target, string $extension): void
     {
         if ($constants === []) {
@@ -117,7 +109,7 @@ final class GenerateStubsForExtCommand extends Command
 
         file_put_contents(
             $target . $extension . '_d.php',
-            $this->printer->prettyPrintFile($constants)
+            $this->printer->prettyPrintFile($constants),
         );
     }
 }

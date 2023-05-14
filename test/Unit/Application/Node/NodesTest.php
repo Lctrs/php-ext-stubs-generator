@@ -19,7 +19,7 @@ final class NodesTest extends TestCase
 
         self::assertSame(
             $classes,
-            (new Nodes($classes, [], []))->classes()
+            (new Nodes($classes, [], []))->classes(),
         );
     }
 
@@ -29,7 +29,7 @@ final class NodesTest extends TestCase
 
         self::assertSame(
             $functions,
-            (new Nodes([], $functions, []))->functions()
+            (new Nodes([], $functions, []))->functions(),
         );
     }
 
@@ -43,7 +43,7 @@ final class NodesTest extends TestCase
 
         self::assertSame(
             $constants,
-            (new Nodes([], [], $constants))->constants()
+            (new Nodes([], [], $constants))->constants(),
         );
     }
 }
